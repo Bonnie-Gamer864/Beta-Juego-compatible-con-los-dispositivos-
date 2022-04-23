@@ -97,7 +97,7 @@ function draw() {
   drawSprites();
   textSize(20);
   fill(255);
-  text("Tesoro: "+ treasureCollection,width-50,30);
+  text("Tesoro: "+ treasureCollection,width-150,30);
   }
 
 }
