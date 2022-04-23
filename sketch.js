@@ -21,22 +21,23 @@ function preload(){
 function setup(){
   
   createCanvas(windowWidth, windowHeight);
-// Fondo con Movimiento
-path=createSprite(width/2,height,width,2);
-path.addImage(pathImg);
-path.velocityY = 4;
+
+  // Fondo con Movimiento
+  path=createSprite(width/2, 200);
+  path.addImage(pathImg);
+  path.velocityY = 4;
 
 
-//crear al niño que corre
-boy = createSprite(70,580,20,20);
-boy.addAnimation("SahilRunning",boyImg);
-boy.scale=0.08;
+  //crear al niño que corre
+  boy = createSprite(width/2,height-20,20,20);
+  boy.addAnimation("SahilRunning",boyImg);
+  boy.scale=0.08;
   
   
-cashG=new Group();
-diamondsG=new Group();
-jwelleryG=new Group();
-swordGroup=new Group();
+  cashG = new Group();
+  diamondsG = new Group();
+  jwelleryG = new Group();
+  swordGroup = new Group();
 
 }
 
@@ -50,7 +51,7 @@ function draw() {
   boy.collide(edges);
   
   //codigo para reiniciar el fondo
-  if(path.y > windowWidth ){
+  if(path.y > height ){
     path.y = height/2;
   }
   
@@ -76,8 +77,8 @@ function draw() {
         gameState=END;
         
         boy.addAnimation("SahilRunning",endImg);
-        boy.x=200;
-        boy.y=300;
+        boy.x=width/2;
+        boy.y=height/2;
         boy.scale=0.6;
         
         cashG.destroyEach();
@@ -96,7 +97,7 @@ function draw() {
   drawSprites();
   textSize(20);
   fill(255);
-  text("Tesoro: "+ treasureCollection,150,30);
+  text("Tesoro: "+ treasureCollection,width-50,30);
   }
 
 }
